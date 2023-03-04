@@ -1,8 +1,14 @@
 package com.github.BasicStudentApi.student;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+@Entity
+@Table(name = "student")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_student")
+    @SequenceGenerator(name = "seq_student", sequenceName = "seq_student", allocationSize = 1)
     private Long id;
     private String name;
     private String email;
